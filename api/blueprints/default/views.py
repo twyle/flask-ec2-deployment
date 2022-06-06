@@ -8,4 +8,4 @@ default = Blueprint('default', __name__, template_folder='templates', static_fol
 @default.route('/')
 def default_route():
     """Confirm that the application is working."""
-    return jsonify({'hello': 'from template api auto-deployed!'}), 200
+    return jsonify({'hello': 'from template api auto-deployed with GitHub actions!'}), 200
