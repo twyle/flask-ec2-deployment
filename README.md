@@ -58,13 +58,178 @@ The API has nine routes.
 | '/auth/login'     | POST         | Login a registered user to get an access token. |
 | '/auth/me'     | GET         | Get a logged in user's data. |
 
-The default route returns a JSON response:
+**The default (/) route :**
+
+Simply returns a JSON response:
 
 ```json
 {
   "hello": "from the template api!"
 }
 ```
+
+**The /users route :**
+
+Simply returns a JSON response:
+
+```json
+[
+  {
+    "active": true, 
+    "email": "test@example.com", 
+    "id": 1
+  }, 
+  {
+    "active": true, 
+    "email": "test1@example.com", 
+    "id": 2
+  }
+]
+```
+**The /user route :**
+
+Simply returns the created, updated, deleted or requested user:
+
+```json
+{
+    "active": true, 
+    "email": "test@example.com", 
+    "id": 1
+ }
+```
+
+# Installation
+
+### Clone the [Flask EC2 Deployment repo](https://github.com/twyle/flask-ec2-deployment)
+
+```sh
+git clone https://github.com/twyle/flask-ec2-deployment.git
+```
+
+### Navigate into the cloned repo
+
+```sh
+cd flask-ec2-deployment
+```
+
+### Create a Python3 Virtual Environment.
+
+OS X & Linux:
+
+```sh
+python3 -m venv venv
+```
+
+### Activate the Virtual Environment.
+
+OS X & Linux:
+
+```sh
+source venv/bin/activate
+```
+
+### Install the Project dependencies.
+
+```sh
+make update
+make install
+make install-dev
+```
+
+### Initialize pre-commit.
+
+```sh
+make pre-commit 
+```
+
+### Initialize pre-commit.
+
+```sh
+make initial-tag
+```
+
+### Create the PostgresQL database
+
+Call it lyle_dev or whichever name you want
+
+### Create the project secrets
+
+```sh
+touch .env
+```
+Then add the following to the file:
+
+```sh
+- FLASK_APP=api/__init__.py
+- FLASK_ENV=development
+- SECRET_KEY=supersecretkey
+
+- POSTGRES_HOST=db 
+- POSTGRES_DB=lyle
+- POSTGRES_PORT=5432
+- POSTGRES_USER=postgres
+- POSTGRES_PASSWORD=lyle
+```
+### Create the database tables and seed data
+
+```sh
+make create_db
+make seed_db
+```
+
+### Run the application
+```sh
+make run
+```
+
+### Test the application
+
+```sh
+make test-local
+```
+
+# Release History
+
+## v0.3.0 (2022-06-02)
+
+### Feat
+
+- added the templates.
+
+## v0.2.0 (2022-06-02)
+
+### Feat
+
+- implemented user data storage.
+
+## v0.1.0 (2022-06-02)
+
+### Feat
+
+- created the authentication workflow.
+
+## v0.0.1 (2022-06-02)
+
+### Fix
+
+- fixed the linting errors.
+- fixed isort.
+
+## Meta
+
+Lyle Okoth – [@lylethedesigner](https://twitter.com/lylethedesigner) on twitter – [lyle okoth](https://medium.com/@lyle-okoth) on medium, and my email is lyceokoth@gmail.com
+
+Distributed under the MIT license. See ``LICENSE`` for more information.
+
+[https://github.com/twyle/github-link](https://github.com/twyle/)
+
+## Contributing
+
+1. Fork it https://github.com/twyle/flask-ec2-deployment/fork
+2. Create your feature branch (`git checkout -b feature/fooBar`)
+3. Commit your changes (`git commit -am 'Add some fooBar'`)
+4. Push to the branch (`git push origin feature/fooBar`)
+5. Create a new Pull Request
 
 <!-- Markdown link & img dfn's -->
 [wiki]: https://github.com/yourname/yourproject/wiki
