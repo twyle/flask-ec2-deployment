@@ -1,4 +1,4 @@
-# flask-ec2-deployment
+# Flask EC2 Deployment.
 > This is a simple flask application that shows how to deploy a production grade application to AWS EC2.
 
 [![Feature Development Build](https://github.com/twyle/flask-ec2-deployment/actions/workflows/feature-development-workflow.yml/badge.svg)](https://github.com/twyle/flask-ec2-deployment/actions/workflows/feature-development-workflow.yml)
