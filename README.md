@@ -33,7 +33,7 @@ If you want to learn more about how it was developed, read ***[How to Deploy a P
 - **Release** - Holds all the code and assets related to the latest release
 - **Production** - Holds all the code that is currentlyin production.
 
-The development workflow is pretty straight forward:
+**The application development workflow. **
 
 - A new feature branch is created, to host the code for the new feature.
 - When this is pushed to GitHub, it triggers a workflow that does code quality checks as well as run unit tests, then tests that the application does run.
@@ -41,6 +41,30 @@ The development workflow is pretty straight forward:
 - The development branch is merged into the staging branch, following the same workflow, but the code is autodeployed to a staging server.
 - When a tag is pushed to GitHub, the staging branch is merged into the Release branch and a release is created.
 - When the rellease branch is merged into the production branch, the code is pushed to the production server and the production application restarted with the changes.
+
+**The application routes.** 
+
+The API has nine routes.
+
+| Route       | Method      | Description      |
+| ----------- | ----------- |----------------- |
+| '/'         | GET         | Get the home page |
+| '/user'     | GET         | Get a single user by supplying an ID |
+| '/user'     | POST        | Create a new user by supplying the email address |
+| '/user'     | PUT         | Update a single user's data by supplying the user ID and email address |
+| '/user'     | DELETE      | Delete a single user by supplying the users ID |
+| '/users'    | GET         | Get the list of all created users |
+| '/auth/register'     | POST         | Register a new user. |
+| '/auth/login'     | POST         | Login a registered user to get an access token. |
+| '/auth/me'     | GET         | Get a logged in user's data. |
+
+The default route returns a JSON response:
+
+```json
+{
+  "hello": "from the template api!"
+}
+```
 
 <!-- Markdown link & img dfn's -->
 [wiki]: https://github.com/yourname/yourproject/wiki
