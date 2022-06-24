@@ -196,18 +196,54 @@ make run
 Then navigate to http://localhost:5000/apidocs, you will get
 
 ![](api-docs.png)
+ 
+### Create a new Admin User
+ 
+To be able to use the application, first create an admin user by scrolling down to the Authentication section and selecting the button next to auth/register.
 
+![](api-register-admin.png)
+ 
+Then click the Try it out button
+ 
+![](api-register-admin-try-it-out.png)
+ 
+Enter an email, username and password. Then finally click the execute button
 
+![](api-create-admin-execute.png)
+ 
+You should have created an admin.
 
+### Log into the Admin
 
+Loging in the admin gives you an access token that enables you to create new users. Again within the Authentication section, select the button next to /auth/login.
 
+![](api-log-admin.png) 
 
+Again click on the try it out button
+ 
+![](api-log-admin-try.png)
+ 
+Then use the credentials that you registered with to log in:
 
+![](api-login-pass.png)
+ 
+You should get back an access and refresh token
+ 
+![](api-access-token.png)
+ 
+Copy the access token, you will need it to authenticate your requests. Then at the top of the page, select the Authorize button:
 
+![](api-authorize-button.png)
 
+In the resulting field, enter the word Bearer then paste the access token i.e
 
-
-
+ ```sh
+ Bearer xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+ ```
+ 
+![](api-authorize.png)
+ 
+You now have the authority to create new users or access any route in the application.
 
 ## Meta
 
