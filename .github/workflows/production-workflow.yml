@@ -1,10 +1,10 @@
-name: "Development Build"
+name: "Production Build"
 
 on:
   push:
-    branches: [ development ]
+    branches: [ production ]
   pull_request:
-    branches: [ development ]
+    branches: [ production ]
   workflow_dispatch:
 
 jobs:
@@ -31,6 +31,7 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
+
     strategy:
       matrix:
         python-version: [3.7, 3.8, 3.9]
@@ -99,7 +100,7 @@ jobs:
     runs-on: ubuntu-latest
 
     environment:
-      name: Development
+      name: Production
 
     services:
       postgres:
@@ -137,7 +138,7 @@ jobs:
         if [ -f ./services/web/requirements-dev.txt ]; then pip install -r ./services/web/requirements-dev.txt; fi
         if [ -f ./services/web/requirements.txt ]; then pip install -r ./services/web/requirements.txt; fi
 
-    - name: Create the Environment variables
+    - name: Create the Production Environment variables
       run: |
         touch .env
         echo FLASK_APP=${{secrets.FLASK_APP}} >> .env
