@@ -34,6 +34,7 @@ This interaction with the application happens overthe following routes:
 | '/users'    | GET         | Get the list of all created users |
 | '/auth/register'     | POST         | Register a new admin. |
 | '/auth/login'     | POST         | Login a registered admin to get an access token. |
+| '/auth/refresh'     | GET         | Get a new token when the old one expires. |
 | '/auth/me'     | GET         | Get a logged in admins data. |
 | '/auth/me'     | PUT         | Update a logged in admins data. |
 | '/auth/me'     | DELETE      | Delete a logged in admins data. |
