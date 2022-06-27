@@ -51,6 +51,7 @@ The application has the following features:
 - Email sending using Amazon SES
 - Documentation with mkdocs and swagger
 - GitHub Actions to run tests and code quality checks
+- Deployed with gunicorn and nginx with a custom domain name
 
 ## Application Development Workflow
 
